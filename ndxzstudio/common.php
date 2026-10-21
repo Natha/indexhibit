@@ -36,7 +36,7 @@ function &get_instance()
 
 // concept grabbed mostly from CodeIgniter (and Zend) - sorry it's been dumbed down so much. ;)
 // this is a little ugly but it works
-function &load_class($class, $instantiate = TRUE, $type, $internal = FALSE)
+function &load_class($class, $instantiate, $type, $internal = FALSE)
 {
 	global $indx;
 	
@@ -390,7 +390,7 @@ function system_redirect($params='')
 
 
 // revise this later...
-function entry_uri($uri='', $server_uri)
+function entry_uri($uri, $server_uri)
 {
 	$url = $server_uri;
 

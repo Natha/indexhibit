@@ -1260,7 +1260,6 @@ var ide = '$go[id]';";
 	// we need a way to protect these page from outside access
 	public function sbmt_add_page()
 	{
-		$OBJ->template->errors = TRUE;
 		global $go;
 		
 		// can we do this better?
@@ -1748,9 +1747,7 @@ var ide = '$go[id]';";
 	public function sbmt_img_upload()
 	{
 		global $go, $default;
-		
-		$OBJ->template->errors = TRUE;
-		
+
 		load_module_helper('files', $go['a']);
 		$IMG =& load_class('media', TRUE, 'lib');
 		

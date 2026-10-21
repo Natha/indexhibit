@@ -300,7 +300,7 @@ class Access
 	{
 		$chars = "abcdefghijkmnopqrstuvwxyz0123456789";
 
-	    srand((double)microtime()*1000000);
+	    srand((float)microtime()*1000000);
 	    $i = 0;
 	    $pass = '';
 

@@ -20,7 +20,7 @@ function directions()
 
 // we aren't using all of these...
 // simple validation, returns a default if it's not right
-function check_chars($default, $str='', $arr, $length) 
+function check_chars($default, $str, $arr, $length) 
 {
 	$password 	= "/^[a-zA-Z0-9]+$/"; // login and password
 	$digit 		= "/^[0-9]+$/"; // numbers only
