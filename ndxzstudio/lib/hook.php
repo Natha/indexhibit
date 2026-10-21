@@ -538,7 +538,7 @@ class Hook
 	}
 	
 	
-	public function get_format_header_single($from_folder=PLUGINS_FOLDER, $filename) 
+	public function get_format_header_single($from_folder, $filename) 
 	{
 		if ($handle = @opendir ( $from_folder )) 
 		{

@@ -1,7 +1,7 @@
 <?php if (!defined('SITE')) exit('No direct script access allowed');
 
-// darn quotes
-ini_set("magic_quotes_runtime", 0);
+// PHP 8.1+ makes mysqli throw exceptions by default; the db layer expects false on failure
+mysqli_report(MYSQLI_REPORT_OFF);
 
 // version
 define('VERSION', '2.1.6');

@@ -185,7 +185,7 @@ class Installation
 				$objects = $this->db->fetchArray("SELECT ID FROM ".PX."objects");
 
 				// fresh install only adds three 'objects'
-				if (count($objects) < 4)
+				if (count($objects ?: array()) < 4)
 				{
 					// let's try to get the information from an older version
 					$this->html = $this->previous_install_connection();
@@ -273,7 +273,7 @@ class Installation
 
 		if (isset($_POST['upgrade']))
 		{
-			if (count($objects) < 4)
+			if (count($objects ?: array()) < 4)
 			{
 				$this->do_the_upgrade();
 			}
@@ -283,7 +283,7 @@ class Installation
 				exit;
 			}
 		}
-		elseif ((file_exists(DIRNAME . '/ndxz-studio/config/config.php')) && (count($objects) < 4))
+		elseif ((file_exists(DIRNAME . '/ndxz-studio/config/config.php')) && (count($objects ?: array()) < 4))
 		{
 			$this->html = "<p>Do you want to import the data from your previous website?</p>";
 				
@@ -769,7 +769,7 @@ if (!defined('PX')) { define('PX', '$c[n_appnd]'); }";
 		return FALSE;
 	}
 	
-	function getLanguage($default='', $name, $attr='')
+	function getLanguage($default, $name, $attr='')
 	{
 		global $lang;
 
@@ -906,7 +906,7 @@ if (!defined('PX')) { define('PX', '$c[n_appnd]'); }";
 			$link = @mysqli_connect($c['n_host'], $c['n_user'], $c['n_pwd']);
 			$_GLOBALS['link'] = $link;
 	
-			if (@mysqli_select_db($link, $c['n_name']) && ($this->writeConfig() == TRUE))
+			if ($link && @mysqli_select_db($link, $c['n_name']) && ($this->writeConfig() == TRUE))
 			{
 				// this is where we try to install
 				$this->install_db();

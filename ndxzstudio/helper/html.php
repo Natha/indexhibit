@@ -217,14 +217,14 @@ function textarea($insert='', $attr='', $name='')
 }
 
 
-function radio($name, $attr='', $value, $check='') 
+function radio($name, $attr, $value, $check='') 
 {
 	($value == $check) ? $checked = ' checked ': $checked = '';
 	return input($name,'radio',attr($attr).$checked,$value);
 }
 
 
-function button($name, $type, $attr='', $value) 
+function button($name, $type, $attr, $value) 
 {
 	//return '<button type="' . $type . '" name="' . $name . '" ' . attr($attr) . '>' . inputHelper($value) . '"</button>\n";
 	
@@ -232,7 +232,7 @@ function button($name, $type, $attr='', $value)
 }
 
 
-function input($name, $type, $attr='', $value) 
+function input($name, $type, $attr, $value) 
 {
 	return '<input type="'.$type.'" name="'.$name.'" value="'.inputHelper($value).'" '.attr($attr)." />\n";
 }
@@ -246,14 +246,14 @@ function inputHelper($str)
 }
 
 
-function checkbox($name, $attr='', $value, $checked) 
+function checkbox($name, $attr, $value, $checked) 
 {	
 	($checked == '1') ? $check = ' checked' : $check = '';
 	return "<input type='checkbox' name='$name' value='$value'" . attr($attr) . "$check />\n";
 }
 
 
-function option($value='', $insert, $s1='', $s2='') 
+function option($value, $insert, $s1='', $s2='') 
 {
 	($s1 == $s2) ? $sl = " selected" : $sl = '';
 	return "<option value=\"$value\" $sl>$insert</option>\n";
@@ -278,13 +278,13 @@ function br($repeat='1', $attr='')
 }
 
 
-function tag($insert='', $tag, $attr='') 
+function tag($insert, $tag, $attr='') 
 {
 	return "<$tag".attr($attr).">\n$insert\n</$tag>\n";
 }
 
 
-function ptag($insert='', $tag, $attr='') 
+function ptag($insert, $tag, $attr='') 
 {
 	return "<$tag".attr($attr).">$insert</$tag>\n\n";
 }

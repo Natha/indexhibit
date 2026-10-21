@@ -2818,8 +2818,8 @@ var baseurl = '" . BASEURL . "';";
 		// the record
 		$rs = $this->db->fetchArray("SELECT pl_file  
 			FROM ".PX."plugins 
-			GROUP BY pl_file 
-			ORDER BY pl_name ASC");
+			GROUP BY pl_file
+			ORDER BY MIN(pl_name) ASC");
 			
 		// damn, rewrite the array
 		$i = 0; $in_db = array();
@@ -6347,7 +6347,7 @@ var ide = '$go[id]';";
 	{
 		$chars = "abcdefghijkmnopqrstuvwxyz023456789";
 		
-	    srand((double)microtime()*1000000);
+	    srand((float)microtime()*1000000);
 	    $i = 0;
 	    $pass = '' ;
 
